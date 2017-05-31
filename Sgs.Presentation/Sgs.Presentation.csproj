@@ -83,6 +83,9 @@
     <Compile Include="View\EtudiantListView.xaml.cs">
       <DependentUpon>EtudiantListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SessionUserControl.xaml.cs">
+      <DependentUpon>SessionUserControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EtudiantListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SessionUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

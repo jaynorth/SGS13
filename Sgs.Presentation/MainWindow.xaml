@@ -34,6 +34,7 @@
                 <ToolBar>
                     <Button Name="btn_Etudiant" Click="btn_Etudiant_Click" IsEnabled="False">Etudiants</Button>
                 <Button Name="btn_Enseignant" Click="btn_Enseignant_Click">Enseignants</Button>
+                    <Button Name="btn_Sessions" Click="btn_Sessions_Click">Sessions</Button>
                 </ToolBar>
             </ToolBarTray>
         </Border>

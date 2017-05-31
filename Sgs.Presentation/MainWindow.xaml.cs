@@ -107,6 +107,11 @@ namespace Sgs.Presentation
 
         }
 
+        private void btn_Sessions_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //private void EtudiantListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         //{
         //    if ((sender == null) || !(sender is EtudiantListView))

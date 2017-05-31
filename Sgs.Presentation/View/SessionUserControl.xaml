@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Sgs.Presentation.View.EnseignantDetailUserControl"
+﻿<UserControl x:Class="Sgs.Presentation.View.SessionUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,15 +25,15 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Nom Etudiant-->
+        <!-- Nom Session-->
         <Label
             Grid.Row="0" Grid.Column="0" 
-            Content="Nom:" 
+            Content="Session Id:" 
             HorizontalAlignment="Left"
-            Target="{Binding ElementName=tbxNom}" />
+            Target="{Binding ElementName=tbxId}" />
 
         <TextBox
-            x:Name="tbxNom"
+            x:Name="tbxId"
             Grid.Row="1" Grid.ColumnSpan="5">
             <TextBox.Text>
                 <Binding Path="CurrentItem.Nom" 
@@ -43,33 +43,29 @@
             </TextBox.Text>
         </TextBox>
 
-        <!-- Prenom Etudiant-->
+        <!-- Maxinscription -->
         <Label
             Grid.Row="2" Grid.Column="0" 
-            Content="Prenom:" 
+            Content="Max Inscription:" 
             HorizontalAlignment="Left"
-            Target="{Binding ElementName=tbxPrenom}" />
-
+            Target="{Binding ElementName=tbxMaxInscription}" />
+      
         <TextBox
-            x:Name="tbxPrenom"
+            x:Name="tbxMaxInscription"
             Grid.Row="3" Grid.ColumnSpan="5"
             Text="{Binding CurrentItem.Prenom, Mode=TwoWay, UpdateSourceTrigger=LostFocus}">
-            <!--TextBox.Text  >
-                <Binding Path="CurrentItem.Prenom" 
-                         Mode="TwoWay">
-                </Binding>
-            </-->
+          
         </TextBox>
 
-        <!-- Adresse -->
+        <!-- Annee academique -->
         <Label
             Grid.Row="4" Grid.Column="0" 
-            Content="Adresse:" 
+            Content="Annee Academique:" 
             HorizontalAlignment="Left"
-            Target="{Binding ElementName=Rue}" />
+            Target="{Binding ElementName=Anneeacad}" />
 
         <TextBox
-            x:Name="Rue"
+            x:Name="Anneeacad"
             Grid.Row="5" Grid.ColumnSpan="3">
             <TextBox.Text>
                 <Binding Path="CurrentItem.Rue" 
@@ -77,9 +73,14 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-
+        <!-- jour cour -->
+        <Label
+            Grid.Row="4" Grid.Column="0" 
+            Content="Jour Cour:" 
+            HorizontalAlignment="Left"
+            Target="{Binding ElementName=jourCour}" />
         <TextBox
-            x:Name="No"
+            x:Name="jourCour"
             Grid.Row="5" Grid.Column="4">
             <TextBox.Text>
                 <Binding Path="CurrentItem.RueNum"
@@ -109,55 +110,6 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-
-        <!-- Sessions de sours -->
-        <Label Grid.Row="8" Grid.Column="0"
-            Content="Sessions de cours:"
-            HorizontalAlignment="Left"
-            Target="{Binding ElementName=CoursSession}" />
-
-        <DataGrid Name="CoursSession" Grid.Row="9" Grid.ColumnSpan="5" ItemsSource="{Binding CurrentItem.tbSessions}" AutoGenerateColumns="False" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Cours" Binding="{Binding tbCours.Titre}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Session" Binding="{Binding SessionId}"></DataGridTextColumn>
-
-                <DataGridTemplateColumn Header="Enseignant">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <WrapPanel>
-                                <TextBlock Text="{Binding tbEnseignants.Prenom}"></TextBlock>
-                                <TextBlock Text=" "></TextBlock>
-                                <TextBlock Text="{Binding tbEnseignants.Nom}"></TextBlock>
-                            </WrapPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTextColumn Header="Année" Binding="{Binding AnneeAcademique}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Jour" Binding="{Binding JoursCours}"></DataGridTextColumn>
-
-
-                <DataGridTemplateColumn Header="Periode">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-
-                            <Grid>
-                                <ProgressBar Maximum="{Binding Duree, Mode=OneWay}" Minimum="0" Value="{Binding DureeEcoulee, Mode=OneWay}"   />
-                                <WrapPanel>
-                                    <TextBlock Text="{Binding DateDebutCours, StringFormat={}{0:dd/MM/yyyy} }" ></TextBlock>
-                                    <TextBlock Text=" - "></TextBlock>
-                                    <TextBlock Text="{Binding DateFinCours, StringFormat=dd/MM/yyyy }" ></TextBlock>
-                                </WrapPanel>
-
-                            </Grid>
-
-
-
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-
-        </DataGrid>
+            
     </Grid>
 </UserControl>
